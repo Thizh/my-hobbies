@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>music</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+  <script src="comment.js" defer></script>
+  <style>
+    body {
+      background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(./images/musicback.gif);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    ul {
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav-bar">
+    <nav>
+      <ul>
+        <li><a href="index.html">&#x21B1 Home &#8626</a></li>
+        <li><a href="index.html" target="_blank">&#x21B1 About &#8626</a></li>
+        <li><a href="contact.html" target="_blank">&#x21B1 Contact &#8626</a></li>
+      </ul>
+    </nav>
+  </div>
+  <h1>My Favorite Music Artists Collection</h1>
+
+  <div class="collection">
+    <div class="photo">
+      <img src="./images/song1.jpg" alt="Limp Bizkit">
+      <a href="https://en.wikipedia.org/wiki/Limp_Bizkit">
+      <div class="details">
+        <h3>Limp Bizkit</h3>
+        <p>Origin: Jacksonville, Florida, U.S</p>
+        <p>Genre: Nu metal, Rap metal</p>
+        <p>Albums: Chocolate Starfish and the Hot Dog Flavored Water, etc</p>
+        <p>Members:
+        <ul>
+          <li>Fred Durst</li>
+          <li>John Otto</li>
+          <li>Wes Borland</li>
+          <li>DJ Lethal</li>
+          <li>Sam Rivers</li>
+        </ul>
+      </p>
+      </div>
+      </a>
+    </div>
+    <div class="photo">
+      <img src="./images/song2.jpg" alt="System of a Down">
+      <a href="https://en.wikipedia.org/wiki/System_of_a_Down">
+      <div class="details">
+        <h3>System of a Down</h3>
+        <p>Origin: Glendale, California, United States</p>
+        <p>Genre: Heavy metal, Nu metal, Hard rock, Rock</p>
+        <p>Albums: Toxicity, Hypnotize, etc</p>
+        <p>Members:
+          <ul>
+            <li>Serj Tankian</li>
+            <li>Daron Malakian</li>
+            <li>Shavo Odadjian</li>
+            <li>John Dolmayan</li>
+            <li>Andy Khachaturian</li>
+          </ul>
+        </p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/song3.jpeg" alt="Mushroomhead">
+      <a href="https://en.wikipedia.org/wiki/Mushroomhead">
+      <div class="details">
+        <h3>Mushroomhead</h3>
+        <p>Origin: Cleveland, Ohio, United States (1993)</p>
+        <p>Genre: Nu metal, Metal</p>
+        <p>Albums: XIII, A Wonderful Life, etc</p>
+        <p>Members:
+          <ul>
+            <li>Jeffrey Hatrix</li>
+            <li>Waylon Reavis</li>
+            <li>Steve Felton</li>
+            <li>Tom Schmitz</li>
+            <li>Tommy Church</li>
+          </ul>
+        </p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/song5.jpg" alt="Metallica">
+      <a href="https://en.wikipedia.org/wiki/Metallica">
+      <div class="details">
+        <h3>Metallica</h3>
+        <p>Founded: October 28, 1981</p>
+        <p>Genres: Metal, Russian Rock</p>
+        <p>Albums: Master of Puppets, St. Anger, etc</p>
+        <p>Members:
+          <ul>
+            <li>James Hetfield</li>
+            <li>Lars Ulrich</li>
+            <li>Kirk Hammett</li>
+            <li>Robert Trujillo</li>
+            <li>Cliff Burton</li>
+          </ul>
+        </p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/pic5.jpg" alt="Slipknot">
+      <a href="https://en.wikipedia.org/wiki/Slipknot_(band)">
+      <div class="details">
+        <h3>Slipknot</h3>
+        <p>Origin: Des Moines, Iowa, U.S</p>
+        <p>Genre: Heavy metal, Nu metal, Hard rock, Alternative metal, Groove metal</p>
+        <p>Albums: Iowa, All Hope Is Gone, etc</p>
+        <p>Members:
+          <ul>
+            <li>Corey Taylor</li>
+            <li>Shawn Crahan</li>
+            <li>Joey Jordison</li>
+            <li>Paul Gray</li>
+            <li>Mick Thomson</li>
+          </ul>
+        </p>
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="comment">
+    <h2>Any Comments? <br> &#x21A7</h2>
+    <div id="app">
+      <form @submit.prevent="addComment">
+        <label for="name">Name:</label>
+        <input id="name" v-model="name" type="text" required>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" v-model="comment" required></textarea>
+        <button type="submit">Add Comment</button>
+      </form>
+      <div class="comment-collection" v-if="comments.length">
+        <ul>
+          <li v-for="comment in comments" :key="comment.id">
+            <strong>{{ comment.name }}:</strong> {{ comment.comment }}
+          </li>
+        </ul>
+      </div>
+    </div>
+</body>
+
+</html>

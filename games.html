@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>games</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+  <script src="comment.js" defer></script>
+  <style>
+    body {
+      background: linear-gradient(rgba(33, 99, 13, 0.5), black);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav-bar">
+    <nav>
+      <ul>
+        <li><a href="index.html">&#x21B1 Home &#8626</a></li>
+        <li><a href="https://about.me/thizh" target="_blank">&#x21B1 About &#8626</a></li>
+        <li><a href="contact.html" target="_blank">&#x21B1 Contact &#8626</a></li>
+      </ul>
+    </nav>
+  </div>
+  <h1>My Video Games Collection</h1>
+
+  <div class="collection">
+    <div class="photo">
+      <img src="./images/game1.jpg" alt="Crysis">
+      <a href="https://en.wikipedia.org/wiki/Crysis">
+      <div class="details">
+        <h3>Crysis</h3>
+        <p>Release date: June 12, 2012</p>
+        <p>Developer: Crytek</p>
+        <p>Genre: First Person Shooter</p>
+        <p>Crysis is a first-person shooter video game series created by Crytek. The series revolves around a group of military protagonists with "nanosuits", technologically 
+          advanced suits of armor that give them enhanced physical strength, speed, defense, and cloaking abilities</p>
+      </div>
+      </a>
+    </div>
+    <div class="photo">
+      <img src="./images/game2.jpg" alt="Call of Duty">
+      <a href="https://en.wikipedia.org/wiki/Call_of_Duty">
+      <div class="details">
+        <h3>Call of Duty</h3>
+        <p>Release date: October 29, 2003</p>
+        <p>Developer: Activision, Infinity Ward, Nokia, Aspyr</p>
+        <p>Genre: First-person shooter</p>
+        <p>Call of Duty is a 2003 first-person shooter game developed by Infinity Ward and published by Activision. 
+          It is the first ever Installment in the Call of Duty franchise, released on October 29, 2003, for Microsoft Windows. </p>
+      </div>
+      </a>
+    </div>
+    <div class="photo">
+      <img src="./images/game3.jpg" alt="Need for Speed">
+      <a href="https://en.wikipedia.org/wiki/Need_for_Speed">
+      <div class="details">
+        <h3>Need for Speed</h3>
+        <p>Release date: October 30, 2012</p>
+        <p>Developer:  Criterion Games</p>
+        <p>Genre: Puzzle</p>
+        <p>Need for Speed: Most Wanted is an open world racing game developed by 
+          Criterion Games and published by Electronic Arts</p>
+      </div>
+      </a>
+    </div>
+    <div class="photo">
+      <img src="./images/game4.jpg" alt="Sleeping Dogs">
+      <a href="https://en.wikipedia.org/wiki/Sleeping_Dogs_(video_game)">
+      <div class="details">
+        <h3>Sleeping Dogs</h3>
+        <p>Release date: August 14, 2012</p>
+        <p>Developer: United Front Games, Square Enix Europe, Feral Interactive</p>
+        <p>Genre: Open World</p>
+        <p>Sleeping Dogs is played from a third-person perspective. The player controls Wei Shen, a Chinese-American 
+          police officer who goes undercover and ventures out on a raid to infiltrate the Sun On Yee Triad organization.</p>
+      </div>
+      <a href="https://en.wikipedia.org/wiki/Grand_Theft_Auto:_San_Andreas"></a>
+    </div>
+    <div class="photo">
+      <img src="./images/pic2.jpg" alt="Grand Theft Auto: San Andreas">
+      <a href="https://en.wikipedia.org/wiki/Grand_Theft_Auto:_San_Andreas">
+      <div class="details">
+        <h3>Grand Theft Auto: San Andreas</h3>
+        <p>Release date: October 26, 2004</p>
+        <p>Developer: Rockstar Games</p>
+        <p>Genre: Open World</p>
+        <p>Grand Theft Auto: San Andreas is a 2004 action-adventure game developed by Rockstar North and published by Rockstar Games. It is the fifth main entry 
+          in the Grand Theft Auto series, following 2002's Grand Theft Auto: Vice City, and the seventh installment overall.</p>
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="comment">
+    <h2>Any Comments? <br> &#x21A7</h2>
+    <div id="app">
+      <form @submit.prevent="addComment">
+        <label for="name">Name:</label>
+        <input id="name" v-model="name" type="text" required>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" v-model="comment" required></textarea>
+        <button type="submit">Add Comment</button>
+      </form>
+      <div class="comment-collection" v-if="comments.length">
+        <ul>
+          <li v-for="comment in comments" :key="comment.id">
+            <strong>{{ comment.name }}:</strong> {{ comment.comment }}
+          </li>
+        </ul>
+      </div>
+    </div>
+</body>
+
+</html>

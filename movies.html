@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>movies</title>
+  <link rel="stylesheet" href="styles1.css">
+  <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+  <script src="comment.js" defer></script>
+  <style>
+    body {
+      background: linear-gradient(rgba(128, 13, 13, 0.5), rgb(0, 0, 0));
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav-bar">
+    <nav>
+      <ul>
+        <li><a href="index.html">&#x21B1 Home &#8626</a></li>
+        <li><a href="https://about.me/thizh/">&#x21B1 About &#8626</a></li>
+        <li><a href="contact.html" target="_blank">&#x21B1 Contact &#8626</a></li>
+      </ul>
+    </nav>
+  </div>
+  <h1>My Movies & Tv-Series Collection</h1>
+
+  <div class="collection">
+    <div class="photo">
+      <img src="./images/movie1.jpeg" alt="Breaking Bad">
+      <a href="https://en.wikipedia.org/wiki/Breaking_Bad">
+      <div class="details">
+        <h3>Breaking Bad</h3>
+        <p>First episode date: January 20, 2008</p>
+        <p>Final episode date: September 29, 2013</p>
+        <br>
+        <p>Walter White, a chemistry teacher, discovers that he has cancer and decides to 
+          get into the meth-making business to
+          repay his medical debts. His priorities begin to change when he partners with Jesse.</p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/movie2.jpg" alt="Terminator">
+      <a href="https://en.wikipedia.org/wiki/The_Terminator">
+      <div class="details">
+        <h3>Terminator</h3>
+        <p>Release date: October 26, 1984</p>
+        <br>
+        <p>A science-fiction film franchise that began in 1984 with the release of the first film, directed by James Cameron. The original film 
+          tells the story of a cyborg assassin sent back in time from the year 2029 
+          to 1984 to kill Sarah Connor, the mother of the future resistance leader John Connor</p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/movie3.jpg" alt="Incredible Hulk">
+      <a href="https://en.wikipedia.org/wiki/The_Incredible_Hulk_(film)">
+      <div class="details">
+        <h3>Incredible Hulk</h3>
+        <p>Release date: June 13, 2008</p>
+        <br>
+        <p>Dr. Bruce Banner subjects himself to high levels of gamma radiation which triggers 
+          his transformation into a huge green creature, the Hulk, whenever he experiences 
+          negative emotions such as anger.</p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/movie4.jpg" alt="The Simpsons">
+      <a href="https://en.wikipedia.org/wiki/The_Simpsons">
+      <div class="details">
+        <h3>The Simpsons</h3>
+        <p>Release date: December 17, 1989</p>
+        <br>
+        <p>Working-class father Homer Simpson and his 
+          dysfunctional family deal with comical situations and the ups-and-downs of life in the town of Springfield.</p>
+      </div>
+    </a>
+    </div>
+    <div class="photo">
+      <img src="./images/pic1.jpg" alt="Spider-Man">
+      <a href="https://en.wikipedia.org/wiki/Spider-Man_(2002_film)">
+      <div class="details">
+        <h3>Spider-Man</h3>
+        <p>Release date: May 24, 2002</p>
+        <br>
+        <p>Peter Parker's life changes when he is bitten by a genetically altered spider and gains superpowers. 
+          He uses his powers to help people and finds himself facing the Green Goblin, an evil maniac.</p>
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="comment">
+    <h2>Any Comments? <br> &#x21A7</h2>
+    <div id="app">
+      <form @submit.prevent="addComment">
+        <label for="name">Name:</label>
+        <input id="name" v-model="name" type="text" required>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" v-model="comment" required></textarea>
+        <button type="submit">Add Comment</button>
+      </form>
+      <div class="comment-collection" v-if="comments.length">
+        <ul>
+          <li v-for="comment in comments" :key="comment.id">
+            <strong>{{ comment.name }}:</strong> {{ comment.comment }}
+          </li>
+        </ul>
+      </div>
+    </div>
+</body>
+
+</html>
